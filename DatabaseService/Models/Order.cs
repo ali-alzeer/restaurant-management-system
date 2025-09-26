@@ -1,14 +1,12 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatabaseService.Models
 {
   public class Order
   {
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+    [Column(TypeName = "varchar(36)")]
+    public string Id { get; set; } = Guid.NewGuid().ToString().ToUpper();
 
     [Required]
     public required string TableId { get; set; }

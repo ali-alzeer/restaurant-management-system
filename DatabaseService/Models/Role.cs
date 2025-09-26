@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatabaseService.Models
 {
   public class Role
   {
-
-    public string Id { get; set; } = Guid.NewGuid().ToString();
+    [Column(TypeName = "varchar(36)")]
+    public string Id { get; set; } = Guid.NewGuid().ToString().ToUpper();
 
     [Required]
     [MaxLength(50)]
